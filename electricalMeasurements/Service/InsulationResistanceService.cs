@@ -1,4 +1,6 @@
-﻿namespace electricalMeasurements.Service
+﻿using System.Globalization;
+
+namespace electricalMeasurements.Service
     {
     public class InsulationResistanceService : IInsulationResistanceService
         {
@@ -7,10 +9,10 @@
             bool isValid = resistance >= 1.0;
             return new
                 {
-                MeasurementType = "Insulation Resistance",
-                Resistance = resistance,
-                Status = isValid ? "Pass" : "Fail",
-                Message = isValid ? "Measurement meets safety standards." : "Insulation resistance too low, risk of leakage."
+                TypPomiaru = "Rezystancja izolacji",
+                Rezystancja = resistance.ToString(CultureInfo.InvariantCulture),
+                Status = isValid ? "Poprawny" : "Niepoprawny",
+                Wiadomość = isValid ? "Rezystancja izolacji spełnia normy." : "Rezystancja zbyt niska, ryzyko przebicia!"
                 };
             }
         }

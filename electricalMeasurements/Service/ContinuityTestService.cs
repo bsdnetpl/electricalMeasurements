@@ -1,4 +1,6 @@
-﻿namespace electricalMeasurements.Service
+﻿using System.Globalization;
+
+namespace electricalMeasurements.Service
     {
     public class ContinuityTestService : IContinuityTestService
         {
@@ -7,10 +9,10 @@
             bool isValid = resistance <= 0.1;
             return new
                 {
-                MeasurementType = "Continuity Test",
-                Resistance = resistance,
-                Status = isValid ? "Pass" : "Fail",
-                Message = isValid ? "Measurement is within acceptable range." : "Resistance too high, check connections."
+                TypPomiaru = "Test ciągłości przewodów ochronnych",
+                Rezystancja = resistance.ToString(CultureInfo.InvariantCulture),
+                Status = isValid ? "Poprawny" : "Niepoprawny",
+                Wiadomość = isValid ? "Rezystancja w dopuszczalnym zakresie." : "Rezystancja za wysoka, sprawdź połączenia."
                 };
             }
         }

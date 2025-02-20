@@ -1,4 +1,6 @@
-﻿namespace electricalMeasurements.Service
+﻿using System.Globalization;
+
+namespace electricalMeasurements.Service
     {
     public class GroundResistanceService : IGroundResistanceService
         {
@@ -7,10 +9,10 @@
             bool isValid = resistance <= 10.0;
             return new
                 {
-                MeasurementType = "Ground Resistance",
-                Resistance = resistance,
-                Status = isValid ? "Pass" : "Fail",
-                Message = isValid ? "Ground resistance meets requirements." : "Resistance too high, check grounding system."
+                TypPomiaru = "Rezystancja uziemienia",
+                Rezystancja = resistance.ToString(CultureInfo.InvariantCulture),
+                Status = isValid ? "Poprawny" : "Niepoprawny",
+                Wiadomość = isValid ? "Rezystancja uziemienia w normie." : "Rezystancja zbyt wysoka, sprawdź uziemienie!"
                 };
             }
         }
