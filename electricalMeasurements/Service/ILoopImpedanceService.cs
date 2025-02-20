@@ -2,6 +2,6 @@
     {
     public interface ILoopImpedanceService
         {
-        object ValidateMeasurement(double impedance, double voltage = 230, int mcb = 16);
+        object ValidateMeasurement(double impedance, double voltage = 230, int mcb = 16, string type = "B");
         }
     }
